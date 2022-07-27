@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MMCSVReader</name>
+    </assembly>
+    <members>
+        <member name="T:MMCSVReader.CSVReader">
+            <summary>
+            CSV Reader Class
+            </summary>
+        </member>
+        <member name="T:MMCSVReader.CSVReader.CSVRecordClass">
+            <summary>
+            Sample class to store CSV data
+            </summary>
+            <remarks>
+            The following is mapping by CSV index with [Index].
+            In addition, mapping by header column value with [Name],
+            Ignore mapping with [Ignore] can be set.
+            </remarks>
+        </member>
+        <member name="P:MMCSVReader.CSVReader.CSVRecordClass.Id">
+            <summary>
+            Column 1(Index:0)
+            </summary>
+        </member>
+        <member name="P:MMCSVReader.CSVReader.CSVRecordClass.Name">
+            <summary>
+            Column 2(Index:1)
+            </summary>
+        </member>
+        <member name="P:MMCSVReader.CSVReader.CSVRecordClass.Enabled">
+            <summary>
+            This property is ignored by mapping(private set)
+            </summary>
+        </member>
+        <member name="F:MMCSVReader.CSVReader.StatusDisabled">
+            <summary>
+            Open failed・File not exists
+            </summary>
+        </member>
+        <member name="F:MMCSVReader.CSVReader.StatusHeadOrNoRec">
+            <summary>
+            No data record
+            </summary>
+        </member>
+        <member name="F:MMCSVReader.CSVReader.StatusAvailable">
+            <summary>
+            Available
+            </summary>
+        </member>
+        <member name="P:MMCSVReader.CSVReader.FilePath">
+            <summary>
+            CSV file path
+            </summary>
+        </member>
+        <member name="P:MMCSVReader.CSVReader.Encoding">
+            <summary>
+            Encoding to read CSV file
+            </summary>
+            <remarks>default:UTF-8</remarks>
+        </member>
+        <member name="P:MMCSVReader.CSVReader.HasHeader">
+            <summary>
+            Exists header record
+            </summary>
+        </member>
+        <member name="P:MMCSVReader.CSVReader.Delimiter">
+            <summary>
+            Delimiter
+            </summary>
+        </member>
+        <member name="P:MMCSVReader.CSVReader.Exists">
+            <summary>
+            Exists my file
+            </summary>
+        </member>
+        <member name="P:MMCSVReader.CSVReader.IsOpened">
+            <summary>
+            Is my file opened
+            </summary>
+        </member>
+        <member name="P:MMCSVReader.CSVReader.HasRead">
+            <summary>
+            Is my file loaded
+            </summary>
+        </member>
+        <member name="P:MMCSVReader.CSVReader.IsModeP">
+            <summary>
+            P mode(Reading with Parser)
+            </summary>
+        </member>
+        <member name="P:MMCSVReader.CSVReader.NowRowCount">
+            <summary>
+            Current record count
+            </summary>
+        </member>
+        <member name="P:MMCSVReader.CSVReader.Count">
+            <summary>
+            All record count
+            </summary>
+            <remarks>Don't get while reading, because using the common Reader</remarks>
+        </member>
+        <member name="F:MMCSVReader.CSVReader._disposed">
+            <summary>
+            Dispose flagment
+            </summary>
+        </member>
+        <member name="F:MMCSVReader.CSVReader._stream">
+            <summary>
+            Stream reader
+            </summary>
+        </member>
+        <member name="F:MMCSVReader.CSVReader._csvReader">
+            <summary>
+            CSV reader
+            </summary>
+        </member>
+        <member name="F:MMCSVReader.CSVReader._hasRead">
+            <summary>
+            Private flagment while reading for Class(R mode:Reading with Reader)
+            </summary>
+        </member>
+        <member name="F:MMCSVReader.CSVReader._phasRead">
+            <summary>
+            Private flagment while reading for List(P mode:Reading with Parser)
+            </summary>
+        </member>
+        <member name="M:MMCSVReader.CSVReader.Dispose">
+            <summary>
+            Dispose(Base)
+            </summary>
+        </member>
+        <member name="M:MMCSVReader.CSVReader.Dispose(System.Boolean)">
+            <summary>
+            Dispose(disposing)
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:MMCSVReader.CSVReader.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:MMCSVReader.CSVReader.#ctor(System.String,CsvHelper.Configuration.CsvConfiguration)">
+            <summary>
+            Constructor(Until open with configuration)
+            </summary>
+            <param name="prmCsvFile">CSV file path</param>
+            <param name="config">CSVHelper Configuration</param>
+        </member>
+        <member name="M:MMCSVReader.CSVReader.#ctor(System.String,System.Boolean)">
+            <summary>
+            Constructor(Until open)
+            </summary>
+            <param name="prmCsvFile">CSV file path</param>
+            <param name="opening">Open or not</param>
+        </member>
+        <member name="M:MMCSVReader.CSVReader.#ctor(System.String,System.Text.Encoding,System.Boolean)">
+            <summary>
+            Constructor(Until open)
+            </summary>
+            <param name="prmCsvFile">CSV file path</param>
+            <param name="prmEncoding">File encoding</param>
+            <param name="opening">Open or not</param>
+        </member>
+        <member name="M:MMCSVReader.CSVReader.#ctor(System.String,System.Boolean,System.Text.Encoding,System.Boolean)">
+            <summary>
+            Constructor(Until open)
+            </summary>
+            <param name="prmCsvFile">CSV file path</param>
+            <param name="prmHasHeader">Has header or not</param>
+            <param name="prmEncoding">File encoding</param>
+            <param name="opening">Open or not</param>
+        </member>
+        <member name="M:MMCSVReader.CSVReader.#ctor(System.String,System.String,System.Boolean,System.Text.Encoding,System.Boolean)">
+            <summary>
+            Constructor(Until open)
+            </summary>
+            <param name="prmCsvFile">CSV file path</param>
+            <param name="prmHasHeader">Has header or not</param>
+            <param name="prmEncoding">File encoding</param>
+            <param name="prmDelimiter">Delimiter</param>
+            <param name="opening">Open or not</param>
+        </member>
+        <member name="M:MMCSVReader.CSVReader.Open">
+            <summary>
+            Open file
+            </summary>
+        </member>
+        <member name="M:MMCSVReader.CSVReader.Open(CsvHelper.Configuration.CsvConfiguration)">
+            <summary>
+            Open file with configuration
+            </summary>
+            <param name="config">CSVHelperConfig</param>
+        </member>
+        <member name="M:MMCSVReader.CSVReader.Close(System.Boolean)">
+            <summary>
+            Close file and initialize
+            </summary>
+            <param name="disposing">With dispose</param>
+        </member>
+        <member name="M:MMCSVReader.CSVReader.PRead">
+            <summary>
+            Read one record
+            </summary>
+            <returns>EOF</returns>
+        </member>
+        <member name="M:MMCSVReader.CSVReader.Record">
+            <summary>
+            Get record data
+            </summary>
+            <returns>List of strings</returns>
+        </member>
+        <member name="M:MMCSVReader.CSVReader.AllRecords">
+            <summary>
+            Get all records data in List
+            </summary>
+            <remarks>Although it's said all records, it can processe one by one, because using yield.</remarks>
+            <returns>Enumerable list</returns>
+        </member>
+        <member name="M:MMCSVReader.CSVReader.Read">
+            <summary>
+            Read one record
+            </summary>
+            <returns>EOF</returns>
+        </member>
+        <member name="M:MMCSVReader.CSVReader.Record``1">
+            <summary>
+            Get record data
+            </summary>
+            <returns>Defined class</returns>
+        </member>
+        <member name="M:MMCSVReader.CSVReader.AllRecords``1">
+            <summary>
+            Get all records data in List
+            </summary>
+            <returns>Enumerable list</returns>
+        </member>
+    </members>
+</doc>
